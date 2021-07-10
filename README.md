@@ -29,6 +29,9 @@
 
 ### Advantages and Disadvantages of refactoring code in general
 
+![Runtimes](https://github.com/alecngai/02-Stock_Analysis/blob/main/Resources/Runtimes.png)
+
+
 | Year | Original (s) | Refactored (s) |	 Difference |
 |--|--|--|--|
 | 2017 |  0.8930664 |0.1479492 | 6.04 |
