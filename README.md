@@ -29,6 +29,12 @@
 
 ### Advantages and Disadvantages of refactoring code in general
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In general, refactoring code allows the user to have a much more cleaner code, less variables and more efficient loops. This means the code will utilize less memory for storage and processing, and the compilation time will be fast. Due to the code being refactored it means it also more simple and easier to be upgraded by another user. The logic of the user is more straight forward and readable, unlike having multiple nested loops, it does not tell the reader clearly what the code is doing until the reader has read through it all, but with refactored code, you can more easily see the logic. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The disadvantage is the time needed to refactor the code, if your client wants a solution, there might not be a need to refactor the code. In this case, it is not working on live data, and there are no time constraints therefore runtime is irrelevant to the user, it is purely just for the smoothness of the experience. It serves no analytical advantage other than reducing compilation time. This is useful for online services or lives code that is always being called by an API, the more efficient the last hang time you will have your users experience when using your live service.  Another disadvantage is the chance of making a mistake and altering your output, in this case, we have clear set data where we can compare the changes, however, this may not always be the case, therefore it is up to the programmer whether or not refactoring is worth the time investment. 
+
+### Advantages and Disadvantages of the original and refactored VBA script
+
 ![Runtimes](https://github.com/alecngai/02-Stock_Analysis/blob/main/Resources/Runtimes.png)
 
 
@@ -39,6 +45,22 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the above table is the run times comparing the original and refactored code. Please note, my code was not following the original format provided, I made my own edits to fit my coding style which I felt was more efficient. However, the main difference between using a nested loop vs refactoring is present.  As you can see the refactored code is roughly 6 times faster than the original. This is an amazing advantage in terms of compilation time, as this code can be scaled to work with larger datasets, rather than the original which uses a nested loop, with bigger datasets compilation time can be an issue and impede workflow. Another advantage is the code is much more readable, less complex, and easier to maintain and add to future builds. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The disadvantage is the time needed to refactor the code, if your client wants a solution, there might not be a need to refactor the code. In this case, it is not working on live data, and there are no time constraints therefore runtime is irrelevant to the user, it is purely just for the smoothness of the experience. It serves no analytical advantage other than reducing compilation time. This is useful for online services or lives code that is always being called by an API, the more efficient the last hang time you will have your users experience when using your live service.  Another disadvantage is the chance of making a mistake and altering your output, in this case, we have clear set data where we can compare the changes, however, this may not always be the case, therefore it is up to the programmer whether or not refactoring is worth the time investment. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In this case there is not much disadvantage to refactoring the code, both code depend on the data to be presorted as their conditionals are created for this scenario. The only disadvantage is the time needed to refactor the code, the original code ran within 1 second, and was still efficient for this data set, so technically there was really no need to refactor the code, it only makes sense if the data set was bigger. 
 
-### Advantages and Disadvantages of the original and refactored VBA script
+### Code Changes from original to refactored 
+
+![Ticker]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; My code is different from the original in multiple ways as I found it to be very inefficient, first thing is I created ticker as a Variant and added all the values as an array, this allowed me to assign it all at once, instead of using an assignment call for all 12 tickers. This already increased efference a tad by reducing the number of assignment calls from 12 to just one. 
+
+![Error]
+
+I added an error checker to make sure that the user does indeed enter the year 2017 or 2018 as that is what we had data for. This was just a simple error checker and would exit the macro if it was triggered. 
+
+![Core]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the original code, it called for three separate if statements, this is redundant and would run a check 3 times per loop, I converted it into simple if and else if loop which still had the same functionality but would short circuit if an earlier condition was met, as there was no need to check all three conditions each time.  Added an index to get rid of an entire nested loop, which is the main time saver for this code. 
+
+![Output]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For the output section, I combined it with 2a, as initially the first thing the original code asks us to do is to initialize the tickerVolume, tickerStartingPrice, and tickerEndingPrices to zero, however, when you first call them they are already zero, so you do not need to reinitialize at the very top, you can do this at the bottom, this saves the code from repeating another for loop which iterates from 0 to 11. I combined this with the output, and after the output for that ticker has been done, it will set it to zero. 
