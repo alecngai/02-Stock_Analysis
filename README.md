@@ -49,18 +49,18 @@
 
 ### Code Changes from original to refactored 
 
-![Ticker]
+![Ticker](https://github.com/alecngai/02-Stock_Analysis/blob/main/Resources/Code_Ticker.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; My code is different from the original in multiple ways as I found it to be very inefficient, first thing is I created ticker as a Variant and added all the values as an array, this allowed me to assign it all at once, instead of using an assignment call for all 12 tickers. This already increased efference a tad by reducing the number of assignment calls from 12 to just one. 
 
-![Error]
+![Error](https://github.com/alecngai/02-Stock_Analysis/blob/main/Resources/Code_Error.png)
 
 I added an error checker to make sure that the user does indeed enter the year 2017 or 2018 as that is what we had data for. This was just a simple error checker and would exit the macro if it was triggered. 
 
-![Core]
+![Core](https://github.com/alecngai/02-Stock_Analysis/blob/main/Resources/Code_Core.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the original code, it called for three separate if statements, this is redundant and would run a check 3 times per loop, I converted it into simple if and else if loop which still had the same functionality but would short circuit if an earlier condition was met, as there was no need to check all three conditions each time.  Added an index to get rid of an entire nested loop, which is the main time saver for this code. 
 
-![Output]
+![Output](https://github.com/alecngai/02-Stock_Analysis/blob/main/Resources/Code_Output.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For the output section, I combined it with 2a, as initially the first thing the original code asks us to do is to initialize the tickerVolume, tickerStartingPrice, and tickerEndingPrices to zero, however, when you first call them they are already zero, so you do not need to reinitialize at the very top, you can do this at the bottom, this saves the code from repeating another for loop which iterates from 0 to 11. I combined this with the output, and after the output for that ticker has been done, it will set it to zero. 
