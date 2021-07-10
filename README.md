@@ -55,7 +55,7 @@
 
 ![Error](https://github.com/alecngai/02-Stock_Analysis/blob/main/Resources/Code_Error.png)
 
-I added an error checker to make sure that the user does indeed enter the year 2017 or 2018 as that is what we had data for. This was just a simple error checker and would exit the macro if it was triggered. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  I added an error checker to make sure that the user does indeed enter the year 2017 or 2018 as that is what we had data for. This was just a simple error checker and would exit the macro if it was triggered. 
 
 ![Core](https://github.com/alecngai/02-Stock_Analysis/blob/main/Resources/Code_Core.png)
 
